@@ -25,14 +25,14 @@ Feel free to contrubute with pull requests
 To get ready just clone the repository and run the project
 ```bash
 git clone https://github.com/RossiFire/next-seo-starter
-cd next-seo-template-starter
+cd next-seo-starter
 npm run dev
 ``` 
 
 ## Metadata setup
 You can find the root metadata in the app layout
 ```typescript
-app/layout.tsx
+// app/layout.tsx
 
 import type { Metadata } from 'next'
 
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 here you'll need to edit title, description and adding keywords. _title_ is an object containing the templace prefix inherited by sub-routes. So than in the other pages you can just set the relavite title
 
 ```typescript
-//e.g. app/(routes)/contact/layout.tsx
+// e.g. app/(routes)/contact/layout.tsx
 
 export const metadata: Metadata = {
   title: 'Contact' // Final result: My Website - Contact
@@ -127,7 +127,7 @@ Library to build awesome website animations. You can find additional on their [*
 ## Sitemap - Robots.txt - Manifest 
 The _robot.ts_ file doesn't need changes. The _sitemap.ts_ instead needs to be edited with your routes. here's an example
 ```typescript
-sitemap.ts
+// sitemap.ts
 
 import { MetadataRoute } from "next";
 
@@ -150,7 +150,7 @@ in this way, you'll expose all possible website URLs to the search engine crawle
 
 About the manifest, you need to change _name_, _short_name_, description and _background/theme color_ (and _start_url_ if needed)
 ```typescript
-manifest.ts
+// manifest.ts
 
 import { MetadataRoute } from 'next'
  
