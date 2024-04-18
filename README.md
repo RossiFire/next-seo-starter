@@ -15,9 +15,9 @@ Feel free to contrubute with pull requests
 ## 📕Table of contents
 - [Getting started](#getting-started)
 - [Metadata setup](#metadata-setup)
-- [Opengraph/Twitter/Apple images](#opengraph/twitter-image)
+- [Opengraph/Twitter/Apple images](#opengraph/twitter/apple-image)
 - [Tailwind configuration](#tailwind-configuration)
-- Framer Motion
+- [Framer Motion](#framer-motion)
 - [Sitemap, robots.txt and Manifest](#sitemap---robots.txt---manifest)
 - [Resources](#resources)
 
