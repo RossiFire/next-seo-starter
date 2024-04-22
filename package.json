@@ -1,13 +1,11 @@
 {
-  "name": "luigi-giacomuzzi",
-  "version": "0.1.0",
-  "private": true,
+  "name": "next-seo-starter",
+  "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "sitemap": "next-sitemap"
+    "lint": "next lint"
   },
   "dependencies": {
     "clsx": "^2.1.0",

@@ -22,12 +22,13 @@ Feel free to contrubute with pull requests
 - [Resources](#resources)
 
 ## Getting started
-To get ready just clone the repository and run the project
+To get ready click "use this template" button on github to create a new repository, clone it on you pc, install the dependencies and than run the project
 ```bash
-git clone https://github.com/RossiFire/next-seo-starter
 cd next-seo-starter
+npm i
 npm run dev
 ``` 
+Also, add an _.env_ file, setting at least **NEXT_PUBLIC_BASE_URL="http://localhost:3000"** since this variable is already used in some files
 
 ## Metadata setup
 You can find the root metadata in the app layout
@@ -122,7 +123,7 @@ finally remove these lines of code from _globals.css_
 and you're done!
 
 ## Framer Motion
-Library to build awesome website animations. You can find additional on their [**website**](https://www.framer.com/motion/). Since this library doesn't need any type of configuration, if you don't need it just remove it from package.json
+Library to build awesome website animations. You can find additional information on their [**website**](https://www.framer.com/motion/). Since this library doesn't need any type of configuration, if you don't need it just remove it from package.json
 
 ## Sitemap - Robots.txt - Manifest 
 The _robot.ts_ file doesn't need changes. The _sitemap.ts_ instead needs to be edited with your routes. here's an example
