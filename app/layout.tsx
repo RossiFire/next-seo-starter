@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
+import { Oi } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
 
-const font = Roboto({ weight: '400', subsets: ['latin']})
+const font = Oi({ weight: '400', subsets: ['latin']})
 
 
 
