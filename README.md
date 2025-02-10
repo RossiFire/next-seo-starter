@@ -7,8 +7,7 @@
 
 ## Next SEO Starter Template
 
-  
-
+ 
 __Now supporting Next.js 15, React 19 and the brand new Tailwindcss 4 🎆🎆__
 
   
@@ -63,13 +62,9 @@ Feel free to contribute with pull requests.
 To get ready click "use this template" button on github to create a new repository, clone it on you pc, install the dependencies and than run the project
 
 ```bash
-
 cd  next-seo-starter
-
 npm  i
-
 npm  run  dev
-
 ```
 
 Also, add an _.env_ file, setting at least **NEXT_PUBLIC_BASE_URL="http://localhost:3000"** since this variable is already used in some files
@@ -87,37 +82,20 @@ The app layout contains root metadata, used across the application
   
 
 ```typescript
-
 // app/layout.tsx
-
-  
-
 import  type { Metadata } from  'next'
 
-  
-
 export  const  metadata: Metadata = {
-
-metadataBase:  new  URL(process.env.NEXT_PUBLIC_BASE_URL!),
-
-title: {
-
-default:  'My Website',
-
-template:  'My Website - %s'
-
-},
-
-description:  '',
-
-keywords: [],
-
-twitter:{
-
-card:  'summary_large_image'
-
-}
-
+    metadataBase:  new  URL(process.env.NEXT_PUBLIC_BASE_URL!),
+    title: {
+        default:  'My Website',
+        template:  'My Website - %s'
+    },
+    description:  '',
+    keywords: [],
+    twitter:{
+    card:  'summary_large_image'
+    }
 }
 
 ```
@@ -127,15 +105,10 @@ I suggest you to edit title, description and keywords, based on your needs. The 
   
 
 ```typescript
-
 // e.g. app/(routes)/contact/layout.tsx
 
-  
-
 export  const  metadata: Metadata = {
-
-title:  'Contact'  // Final result: My Website - Contact
-
+    title:  'Contact'  // Final result: My Website - Contact
 }
 
 ```
@@ -143,45 +116,25 @@ title:  'Contact'  // Final result: My Website - Contact
 If you need to generate dynamic metadata for a page, you have to add this function in its layout file
 
 ```typescript
-
 import { Metadata, ResolvingMetadata } from  "next";
-
-  
 
 export  async  function  generateMetadata( { params }: PageProps , parent: ResolvingMetadata): Promise<Metadata> {
 
-const  product = await  yourRequestToServer(params.id);
-
-  
-
-return {
-
-title:  product.name,
-
-description:  product.description,
-
-openGraph:{
-
-images:[
-
-'product.image.url'
-
-]
-
-},
-
-twitter:{
-
-images:[
-
-'product.image.url'
-
-]
-
-}
-
-}
-
+const  product = await yourRequestToServer(params.id);
+    return {
+        title:  product.name,
+        description:  product.description,
+        openGraph:{
+            images:[
+                'product.image.url'
+            ]
+        },
+        twitter:{
+            images:[
+                'product.image.url'
+            ]
+        }
+    }
 }
 
 ```
@@ -221,29 +174,19 @@ The project is delivered with tailwind already in place.
 Remove dependencies from package.json
 
 ```json
-
 "tailwindcss",
-
 "tailwindcss-animate",
-
 "tailwind-merge",
-
 "@tailwindcss/postcss",
-
 "postcss",
-
 "clsx"
-
 ```
 
 than delete these files, since they'll not be needed anymore
 
 ```bash
-
 postcss.config.js
-
 lib/utils.ts
-
 ```
 
   
@@ -251,13 +194,9 @@ lib/utils.ts
 finally remove these lines of code from _globals.css_
 
 ```css
-
 @import  'tailwindcss';
-
 @plugin 'tailwindcss-animate';
-
 @variant dark (&:is(.dark *));
-
 ```
 
   
@@ -277,37 +216,23 @@ Library to build awesome website animations. You can find additional information
 The _robot.ts_ file doesn't need changes. The _sitemap.ts_ instead needs to be edited with your routes. here's an example
 
 ```typescript
-
 // sitemap.ts
-
-  
 
 import { MetadataRoute } from  "next";
 
-  
-
 export  default  async  function  sitemap(): Promise<MetadataRoute.Sitemap> {
+    const  staticRoutes = [
+        { url:  `${process.env.NEXT_PUBLIC_BASE_URL}`, lastModified:  new  Date(), priority:  1 },
+        { url:  `${process.env.NEXT_PUBLIC_BASE_URL}/contact`, lastModified:  new  Date() }, // Example route
+        { url:  `${process.env.NEXT_PUBLIC_BASE_URL}/about`, lastModified:  new  Date() }, // Example route
+    ]
 
-const  staticRoutes = [
+    const  myArticles = await  getAllDataFromServer();
 
-{ url:  `${process.env.NEXT_PUBLIC_BASE_URL}`, lastModified:  new  Date(), priority:  1 },
-
-{ url:  `${process.env.NEXT_PUBLIC_BASE_URL}/contact`, lastModified:  new  Date() }, // Example route
-
-{ url:  `${process.env.NEXT_PUBLIC_BASE_URL}/about`, lastModified:  new  Date() }, // Example route
-
-]
-
-const  myArticles = await  getAllDataFromServer();
-
-const  dynamicRoutes: MetadataRoute.Sitemap = myArticles.map(article  => ({ url :  `${process.env.NEXT_PUBLIC_BASE_URL}/article/${article.name}`}) )
-
-  
-
-return [...staticRoutes, ...dynamicRoutes];
-
+    const  dynamicRoutes: MetadataRoute.Sitemap = myArticles.map(article  => ({ url :  `${process.env.NEXT_PUBLIC_BASE_URL}/article/${article.name}`}) )
+    
+    return [...staticRoutes, ...dynamicRoutes];
 }
-
 ```
 
 In this way, you'll expose all possible website URLs to the search engine crawlers.
@@ -317,35 +242,20 @@ In this way, you'll expose all possible website URLs to the search engine crawle
 About the manifest, you need to change _name_, _short_name_, description and _background/theme color_ (and _start_url_ if needed)
 
 ```typescript
-
 // manifest.ts
 
-  
-
 import { MetadataRoute } from  'next'
-
 export  default  function  manifest(): MetadataRoute.Manifest {
-
-return {
-
-name:  'My App',
-
-short_name:  'My App',
-
-description:  'My App Description',
-
-start_url:  '/',
-
-display:  'standalone',
-
-background_color:  '#fff',
-
-theme_color:  '#fff',
-
+    return {
+    name:  'My App',
+    short_name:  'My App',
+    description:  'My App Description',
+    start_url:  '/',
+    display:  'standalone',
+    background_color:  '#fff',
+    theme_color:  '#fff',
+    }
 }
-
-}
-
 ```
 
   
