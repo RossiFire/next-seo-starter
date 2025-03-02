@@ -20,7 +20,7 @@ The goal of this project is both having a ready-to-use template, but also provid
 
 Feel free to contribute with pull requests.
 
-If you're still searching for Next 14 and React 18 starter, you can find it ![here](https://github.com/RossiFire/next-seo-starter/tree/next14-react18)
+If you're still searching for Next 14 and React 18 starter, you can find it [here](https://github.com/RossiFire/next-seo-starter/tree/next14-react18)
 
   
 
