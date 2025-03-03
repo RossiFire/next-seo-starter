@@ -280,16 +280,16 @@ export  default  function  manifest(): MetadataRoute.Manifest {
 
 If you're looking for beautiful UI Kit for your website, i reccomend you these websites:
 
-- (**shadcn/ui**)[https://ui.shadcn.com/]
+- [**shadcn/ui**](https://ui.shadcn.com/)
 
-- (**Reactbits**)[https://www.reactbits.dev]
+- [**Reactbits**](https://www.reactbits.dev)
 
-- (**Acernity UI**)[https://ui.aceternity.com]
+- [**Acernity UI**](https://ui.aceternity.com)
 
-- (**CuiCui**)[https://cuicui.day/]
+- [**CuiCui**](https://cuicui.day/)
 
-- (**Origin UI**)[https://originui.com/]
+- [**Origin UI**](https://originui.com/)
 
-- (**Radix UI**)[https://www.radix-ui.com/]
+- [**Radix UI**](https://www.radix-ui.com/)
 
-- (**Hover.dev**)[https://www.hover.dev]
+- [**Hover.dev**](https://www.hover.dev)
