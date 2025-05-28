@@ -27,6 +27,7 @@
       "@/hooks/*": ["./hooks/*"],
       "@/lib/*": ["./lib/*"],
       "@/public/*": ["./public/*"],
+      "@/providers/*": ["./providers/*"],
     },
     "target": "ES2017"
   },
