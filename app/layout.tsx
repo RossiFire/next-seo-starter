@@ -3,6 +3,7 @@ import './globals.css'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { microdata } from '@/lib/microdata'
 import { MicrodataScript } from '@/providers/MicrodataScript'
+import { allowIndexing } from '@/lib/indexing'
 
 
 const homepageMicrodata = microdata('WebSite', {
@@ -42,6 +43,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: process.env.NEXT_PUBLIC_BASE_URL,
   },
+  ...allowIndexing()
 };
 
 
