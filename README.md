@@ -1,11 +1,8 @@
-
-
-  
 <h1 align="center">
-  next.ts
+  next-ts
 </h1>
 <p align="center">
-  A Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your <i>next</i> big project, with Next.ts it's all ready to go!
+  A Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your <i>next</i> big project, with next-ts it's all ready to go!
 </p>
 
 ## 💫 Features
@@ -47,15 +44,15 @@ npx create-next-app@latest -e https://github.com/RossiFire/next-seo-starter
 ```
 Then:
 ```bash
-cd  next-seo-starter
+cd next-ts
 npm i
 ```
 
 ### 2. Environment file
 Rename the _.env.example_ to _.env_, it looks like this:
 ```bash
-NEXT_PUBLIC_BASE_URL = "http://localhost:3000"
-GOOGLE_ANALYTICS_TAG = "GA-example-code"
+NEXT_PUBLIC_BASE_URL="http://localhost:3000"
+GOOGLE_ANALYTICS_TAG="GA-example-code"
 ```
 
 Now you're ready to go! start the server with:
@@ -133,7 +130,7 @@ const dynamicRoutes = posts.map(post => ({
 
 ### Metadata & Microdata
 
-**Metadata** is configured in `app/layout.tsx` via the `metaData` export. The `title.template` property creates a prefix for child pages (e.g., "NEXT.TS - Contact").
+**Metadata** is configured in `app/layout.tsx` via the `metaData` export. The `title.template` property creates a prefix for child pages (e.g., "NEXT-TS - Contact").
 
 For dynamic metadata, export `generateMetadata` in page/layout files:
 

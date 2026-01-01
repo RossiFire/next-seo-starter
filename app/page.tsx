@@ -11,19 +11,19 @@ export default function Home() {
 							"text-base md:text-2xl lg:text-5xl tracking-widest text-transparent bg-clip-text bg-linear-to-r from-primary via-gray-950 to-secondary font-bbh-bartle"
 						)}
 					>
-						next.ts
+						next-ts
 					</h1>
 					<h2 className={cn("text-base md:text-xl tracking-widest font-dm-sans")}>
 						Forget about the setup, and focus on coding. <br /> Get started in{" "}
 						<strong>seconds</strong>.
 					</h2>
 					<code className="rounded-lg bg-primary/10 text-secondary p-4 text-sm font-dm-sans mt-4">
-						npx create-next-app@latest -e https://github.com/RossiFire/next-seo-starter
+						npx create-next-app@latest -e https://github.com/RossiFire/next-ts
 					</code>
 					<span>
 						or {" "}
 						<Link
-						href="https://github.com/RossiFire/next-seo-starter"
+						href="https://github.com/RossiFire/next-ts"
 						className={cn(
 							"text-primary font-medium hover:text-secondary transition-all duration-300 underline underline-offset-2 font-dm-sans"
 						)}

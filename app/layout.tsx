@@ -8,12 +8,12 @@ import { MicrodataScript } from "@/providers/MicrodataScript";
 import "./globals.css";
 
 const homePageMicrodata = microdata("WebSite", {
-	name: "next.ts",
+	name: "next-ts",
 	url: process.env.NEXT_PUBLIC_BASE_URL,
 	description:
-		"next.ts is a Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your _next_ big project, with Next.ts it's all ready to go!",
-	author: "next.ts",
-	publisher: "next.ts",
+		"next-ts is a Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your _next_ big project, with next-ts it's all ready to go!",
+	author: "next-ts",
+	publisher: "next-ts",
 	inLanguage: "en_US",
 	isAccessibleForFree: true,
 	image: `${process.env.NEXT_PUBLIC_BASE_URL}/public/myimage.png`,
@@ -26,15 +26,15 @@ const homePageMicrodata = microdata("WebSite", {
 export const metaData: Metadata = {
 	metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"),
 	title: {
-		default: "next.ts",
-		template: "next.ts - %s",
+		default: "next-ts",
+		template: "next-ts - %s",
 	},
 	description:
-		"next.ts is a Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your _next_ big project, with Next.ts it's all ready to go!",
-	keywords: ["next.ts"],
-	authors: [{ name: "next.ts" }],
-	creator: "next.ts",
-	publisher: "next.ts",
+		"next-ts is a Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your _next_ big project, with next-ts it's all ready to go!",
+	keywords: ["next-ts"],
+	authors: [{ name: "next-ts" }],
+	creator: "next-ts",
+	publisher: "next-ts",
 	formatDetection: {
 		email: false,
 		address: false,
