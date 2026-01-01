@@ -5,7 +5,7 @@
   next.ts
 </h1>
 <p align="center">
-  A Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your _next_ big project, with Next.ts it's all ready to go!
+  A Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your <i>next</i> big project, with Next.ts it's all ready to go!
 </p>
 
 ## 💫 Features
