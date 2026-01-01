@@ -10,6 +10,7 @@ Stop wasting time setting up your _next_ big project, with NESS it's all ready t
 ## 💫 Features
 - 🌐 Next.js: With App router and always up to date.
 - 💨 Tailwind CSS v4: Style fast and efficiently with the latest version of Tailwind CSS.
+- 🐳 Docker: Docker compose and Dockerfile, for scalable and easy deployment.
 - 🐶 Husky: Automatically lint your commit messages, code, and run tests upon committing or pushing.
 - 🔹 Biome: Fast linting and formatter tool (~35x faster than Prettier)
 - ➿ Conventional Commits: Define commit messages convention in your project
@@ -24,6 +25,7 @@ Stop wasting time setting up your _next_ big project, with NESS it's all ready t
     - [🐶 Husky](#-husky)
     - [🔹 Biome](#-biome)
     - [➿ Conventional Commits](#-conventional-commits)
+    - [🐳 Docker](#-docker)
 - [SEO & Analytics](#seo--analytics)
     - [Sitemap, robots.txt and Manifest](#sitemap-robotstxt-and-manifest)
     - [Metadata & Microdata](#metadata--microdata)
@@ -35,19 +37,23 @@ Stop wasting time setting up your _next_ big project, with NESS it's all ready t
 
 ## Getting started
 
-### 1. Clone the repository
+### 1. Installation
 
-Click "use this template" button on github to create a new repository, clone it on you pc, install the dependencies and than run the project
+
+```bash
+npx create-next-app@latest -e https://github.com/RossiFire/next-seo-starter
+```
+Then:
 ```bash
 cd  next-seo-starter
 npm i
 ```
 
 ### 2. Environment file
-Create a new file called _.env_ on root folder, and paste the following variables:
+Rename the _.env.example_ to _.env_, it looks like this:
 ```bash
 NEXT_PUBLIC_BASE_URL = "http://localhost:3000"
-GOOGLE_ANALYTICS_TAG = "your-google-tag"
+GOOGLE_ANALYTICS_TAG = "GA-example-code"
 ```
 
 Now you're ready to go! start the server with:
@@ -99,6 +105,10 @@ Edit `commitlint.config.ts` to:
 - Add custom rules
 
 Example commit: `feat(login-page): add SSO authentication`
+
+## 🐳 Docker
+The project includes a _docker-compose.prod.yml_. This file is intented to be the one used for deployments.
+It includes a base configuration. Of course you can change it to integrate additional applications.
 
 ## SEO & Analytics
 
