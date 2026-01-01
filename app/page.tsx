@@ -11,7 +11,7 @@ export default function Home() {
 							"text-base md:text-2xl lg:text-5xl tracking-widest text-transparent bg-clip-text bg-linear-to-r from-primary via-gray-950 to-secondary font-bbh-bartle"
 						)}
 					>
-						NextJs SEO <br /> Starter
+						next.ts
 					</h1>
 					<h2 className={cn("text-base md:text-xl tracking-widest font-dm-sans")}>
 						Forget about the setup, and focus on coding. <br /> Get started in{" "}

@@ -1,11 +1,12 @@
 
-![GitHub repo size](https://img.shields.io/github/repo-size/rossifire/next-seo-starter)
 
   
-## NESS - Next SEO Starter Template
-
-A Production-ready and SEO-friendly next.js starter template. 
-Stop wasting time setting up your _next_ big project, with NESS it's all ready to go!
+<h1 align="center">
+  next.ts
+</h1>
+<p align="center">
+  A Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your _next_ big project, with Next.ts it's all ready to go!
+</p>
 
 ## 💫 Features
 - 🌐 Next.js: With App router and always up to date.
@@ -33,6 +34,7 @@ Stop wasting time setting up your _next_ big project, with NESS it's all ready t
 - [Opengraph/Twitter/Apple image](#opengraphtwitterapple-image)
 - [Framer Motion](#framer-motion)
 - [Resources](#resources)
+  - [Useful](#useful)
 	- [UI Kit](#ui-kit)
 
 ## Getting started
@@ -131,7 +133,7 @@ const dynamicRoutes = posts.map(post => ({
 
 ### Metadata & Microdata
 
-**Metadata** is configured in `app/layout.tsx` via the `metaData` export. The `title.template` property creates a prefix for child pages (e.g., "NESS - Contact").
+**Metadata** is configured in `app/layout.tsx` via the `metaData` export. The `title.template` property creates a prefix for child pages (e.g., "NEXT.TS - Contact").
 
 For dynamic metadata, export `generateMetadata` in page/layout files:
 
@@ -195,19 +197,18 @@ Remove from `package.json` if not needed.
 
 ## Resources
 
-- Here is the official blog article about [**Tailwindcss 4**](https://tailwindcss.com/blog/tailwindcss-v4)
+### Useful
 
-- Official Next documentation about metadata and more [**here**](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/manifest)
+- Next documentation about metadata and more [**here**](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/manifest)
 
 - "Generate Dynamic Open Graph and Twitter Images in Next.js" article [**here**](https://cruip.com/generate-dynamic-open-graph-and-twitter-images-in-next-js/)
 
-- To check your Opengraph and Twitter images i recommend you [**this website**](https://www.opengraph.xyz/)
+- To check your Opengraph and Twitter images i recommend you [www.opengraph.xyz](https://www.opengraph.xyz/)
 
-- To check your website SEO i recommend you [**this website**](https://www.seotesteronline.com/)
+- To check your website SEO i recommend you [www.seotesteronline.com](https://www.seotesteronline.com/)
 
   
-
-## UI Kit
+### UI Kit
 
 If you're looking for beautiful UI Kit for your website, i reccomend you these websites:
 

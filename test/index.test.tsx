@@ -4,6 +4,6 @@ import Home from "@/app/page";
 describe("Home Page", () => {
 	it("renders home page", () => {
 		render(<Home />);
-		expect(screen.getByText("NESS")).toBeDefined();
+		expect(screen.getByText("next.ts")).toBeDefined();
 	});
 });

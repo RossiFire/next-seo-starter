@@ -1,19 +1,19 @@
-import { allowIndexing } from "@/lib/indexing";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { barrio, dmSans } from "@/lib/fonts";
+import { allowIndexing } from "@/lib/indexing";
 import { microdata } from "@/lib/microdata";
+import { cn } from "@/lib/utils";
 import { MicrodataScript } from "@/providers/MicrodataScript";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import { barrio, dmSans } from "@/lib/fonts";
 
 const homePageMicrodata = microdata("WebSite", {
-	name: "NESS",
+	name: "next.ts",
 	url: process.env.NEXT_PUBLIC_BASE_URL,
 	description:
-		"NESS is a Next.Js Starter Template, SEO friendly, ready-to-use, production ready and other bunch of business words",
-	author: "NESS",
-	publisher: "NESS",
+		"next.ts is a Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your _next_ big project, with Next.ts it's all ready to go!",
+	author: "next.ts",
+	publisher: "next.ts",
 	inLanguage: "en_US",
 	isAccessibleForFree: true,
 	image: `${process.env.NEXT_PUBLIC_BASE_URL}/public/myimage.png`,
@@ -26,15 +26,15 @@ const homePageMicrodata = microdata("WebSite", {
 export const metaData: Metadata = {
 	metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"),
 	title: {
-		default: "NESS",
-		template: "NESS - %s",
+		default: "next.ts",
+		template: "next.ts - %s",
 	},
 	description:
-		"NESS is a Next.Js Starter Template, SEO friendly, ready-to-use, production ready and other bunch of business words",
-	keywords: ["NESS"],
-	authors: [{ name: "NESS" }],
-	creator: "NESS",
-	publisher: "NESS",
+		"next.ts is a Production-Ready and Scalable Next.js Template Starter. Stop wasting time setting up your _next_ big project, with Next.ts it's all ready to go!",
+	keywords: ["next.ts"],
+	authors: [{ name: "next.ts" }],
+	creator: "next.ts",
+	publisher: "next.ts",
 	formatDetection: {
 		email: false,
 		address: false,
