@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 
 export default function Home() {
 	return (
-		<div className="h-screen grid grid-cols-12 gap-4">
-			<div className="col-span-5 grid place-items-center">
+		<div className="min-h-screen grid grid-cols-12 gap-4 px-8 py-12 gap-y-20">
+			<div className="col-span-12 lg:col-span-5 grid place-items-center">
 				<div className="flex flex-col items-start justify-center gap-4">
 					<h1
 						className={cn(
@@ -17,17 +17,23 @@ export default function Home() {
 						Forget about the setup, and focus on coding. <br /> Get started in{" "}
 						<strong>seconds</strong>.
 					</h2>
-					<Link
+					<code className="rounded-lg bg-primary/10 text-secondary p-4 text-sm font-dm-sans mt-4">
+						npx create-next-app@latest -e https://github.com/RossiFire/next-seo-starter
+					</code>
+					<span>
+						or {" "}
+						<Link
 						href="https://github.com/RossiFire/next-seo-starter"
 						className={cn(
-							"text-primary text-xl font-medium hover:text-secondary transition-all duration-300 underline underline-offset-2 hover:underline-offset-4 font-dm-sans mt-12"
+							"text-primary font-medium hover:text-secondary transition-all duration-300 underline underline-offset-2 font-dm-sans"
 						)}
 					>
-						Get Started
+						explore the repository
 					</Link>
+					</span>
 				</div>
 			</div>
-			<div className="col-span-7 grid place-items-center">
+			<div className="col-span-12 lg:col-span-7 grid place-items-center">
 				<div className="flex flex-col items-start justify-center gap-6">
 					<h2 className="text-transparent bg-clip-text bg-linear-to-r from-primary via-gray-950 to-secondary font-bbh-bartle text-xl">Features</h2>
 					<div className="flex flex-col gap-2">
