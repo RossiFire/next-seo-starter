@@ -1,18 +1,18 @@
-import Script from 'next/script'
-import { WithContext } from 'schema-dts'
-import { SchemaType, SchemaTypeMap } from '@/lib/microdata'
+import Script from "next/script";
+import type { WithContext } from "schema-dts";
+import type { SchemaType, SchemaTypeMap } from "@/lib/microdata";
 
 interface MicrodataScriptProps {
-    id: string
-    microdata: WithContext<SchemaTypeMap[SchemaType]>
+	id: string;
+	microdata: WithContext<SchemaTypeMap[SchemaType]>;
 }
 
-export const MicrodataScript = ({ id, microdata }: MicrodataScriptProps) => {
-  return (
-    <Script
-        id={id}
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata) }}
-    />
-  )
+export function MicrodataScript({ id, microdata }: MicrodataScriptProps) {
+	return (
+		<Script
+			id={id}
+			type="application/ld+json"
+			dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata) }}
+		/>
+	);
 }

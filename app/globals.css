@@ -1,3 +1,25 @@
-@import 'tailwindcss';
-@plugin 'tailwindcss-animate';
-@variant dark (&:is(.dark *));
+@import url("https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap");
+
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@custom-variant dark (&:is(.dark *));
+
+:root {
+	--primary: #3498db;
+	--secondary: #2980b9;
+	--background: #ecf0f1;
+}
+
+@theme inline {
+	--color-primary: var(--primary);
+	--color-secondary: var(--secondary);
+	--color-background: var(--background);
+
+	--font-bbh-bartle: "BBH Bartle", sans-serif;
+	/* Css variables automatically generated in layout.tsx */
+	--font-dm-sans: var(--font-dm-sans);
+}
+
+@utility text-gradient {
+	@apply text-transparent bg-clip-text bg-linear-to-r from-primary via-gray-950 to-secondary;
+}

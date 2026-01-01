@@ -1,54 +1,37 @@
 
-![GitHub repo size](https://img.shields.io/github/repo-size/rossifire/next-seo-starter) ![GitHub Repo stars](https://img.shields.io/github/stars/rossifire/next-seo-starter)
+![GitHub repo size](https://img.shields.io/github/repo-size/rossifire/next-seo-starter)
 
   
-## NESS - Next Seo Starter Template
+## NESS - Next SEO Starter Template
 
- 
-__Now supporting Next.Js 15, React 19 and the brand new Tailwindcss 4 🎆🎆__
+A Production-ready and SEO-friendly next.js starter template. 
+Stop wasting time setting up your _next_ big project, with NESS it's all ready to go!
 
-
-## Why NESS?
-This project aims to be your complete guide to create a multi page SEO-Friendly Websites, production ready. Moreover, I want to provide you a lightweight starter project, using Next.js (App Router), Typescript and Tailwindcss.
-
-In this repository you'll find a ready-to-use template, but also resources and articles to make your development with Nextjs easier and faster.
-
-  
-
-Feel free to contribute with pull requests.
-
-If you're still searching for Next 14 and React 18 version, you can find it [here](https://github.com/RossiFire/next-seo-starter/tree/next14-react18)
-
-  
-
-## 🚀 Features
-
-- Static and Dynamic Metadata management
-- Microdata implementation
-- Sitemap, robots.txt ans Manifest to improve SEO ranking and website indexing
-- Opengraph/Twitter/Apple image
-- Tailwindcss, to manage style with...style 🥴
-- **NEW** Google Analytics to track your website usage
-- Framer Motion for beautiful animations
-- Path aliases to improve your imports
-
-  
-  
+## 💫 Features
+- 🌐 Next.js: With App router and always up to date.
+- 💨 Tailwind CSS v4: Style fast and efficiently with the latest version of Tailwind CSS.
+- 🐶 Husky: Automatically lint your commit messages, code, and run tests upon committing or pushing.
+- 🔹 Biome: Fast linting and formatter tool (~35x faster than Prettier)
+- ➿ Conventional Commits: Define commit messages convention in your project
+- 💡 SEO: Metadata, Microdata, Sitemap, robots.txt and Manifest. Having an online presence has never been easier
+- 📊 Google Analytics: Natively integrated with Next.js
+- 🔨 Jest: Last but not least, make Test Driven Development your standard 
 
 ## 📕Table of contents
 
 - [Getting started](#getting-started)
-- [Sitemap, robots.txt and Manifest](#sitemap---robotstxt---manifest)
-- [Metadata setup](#metadata-setup)
-- [Microdata setup](#microdata-setup)
+- [Development Tools](#development-tools)
+    - [🐶 Husky](#-husky)
+    - [🔹 Biome](#-biome)
+    - [➿ Conventional Commits](#-conventional-commits)
+- [SEO & Analytics](#seo--analytics)
+    - [Sitemap, robots.txt and Manifest](#sitemap-robotstxt-and-manifest)
+    - [Metadata & Microdata](#metadata--microdata)
+    - [Google Analytics](#google-analytics)
 - [Opengraph/Twitter/Apple image](#opengraphtwitterapple-image)
-- [Tailwind configuration](#tailwind-configuration)
 - [Framer Motion](#framer-motion)
-- [Google Analytics](#google-analytics)
 - [Resources](#resources)
 	- [UI Kit](#ui-kit)
-
-  
 
 ## Getting started
 
@@ -57,7 +40,7 @@ If you're still searching for Next 14 and React 18 version, you can find it [her
 Click "use this template" button on github to create a new repository, clone it on you pc, install the dependencies and than run the project
 ```bash
 cd  next-seo-starter
-npm  i
+npm i
 ```
 
 ### 2. Environment file
@@ -72,216 +55,133 @@ Now you're ready to go! start the server with:
 npm run dev
 ```
 
-## Sitemap - Robots.txt - Manifest
-The _robots.ts_ file is useful to decide what pages Web Crawlers can see and what they can't. It doesn't need changes.
-The _sitemap.ts_ file is a list of URLs, useful to make Web Crawlers aware of your Website structure, improving page scanning and inxeding. This file instead needs to be edited with your routes. here's an example:
+## Development Tools
+
+### 🐶 Husky
+
+Husky is configured to run Git hooks. The `pre-commit` hook runs lint-staged, and the `commit-msg` hook validates commit messages with commitlint.
+
+Hooks are located in `.husky/`:
+- `pre-commit`: Runs `lint-staged` to format and lint staged files
+- `commit-msg`: Validates commit messages using commitlint
+
+To customize hooks, edit the files in `.husky/`. To disable Husky, remove the `.husky` directory and uninstall the package.
+
+Here's the [Official Husky documentation](https://typicode.github.io/husky).
+
+### 🔹 Biome
+
+Biome handles linting and formatting. Configuration is in `biome.json`.
+
+**Usage:**
+- Install the [Biome plugin](https://biomejs.dev/guides/editors/first-party-extensions/) in your favourite editor
+- `npm run lint` - Check for issues
+- `npm run format` - Format files
+
+**Customization:**
+Edit `biome.json` to adjust rules, formatting options, or file patterns. The default config includes Next.js-specific rules and accessibility checks.
+For further rules and options, I recommend you to check the [Official Biome documentation](https://biomejs.dev/guides/configure-biome).
+
+**Lint-staged integration:**
+Configured in `package.json` to run Biome on staged files before commits. Modify the `lint-staged` field to change file patterns or add additional checks.
+
+### ➿ Conventional Commits
+
+Commitlint enforces the [Conventional Commits](https://www.conventionalcommits.org/) specification. Configuration is in `commitlint.config.ts`.
+
+**Allowed types:**
+- `feat`, `fix`, `test`, `ref`, `refactor`, `revert`, `security`, `build`, `ci`, `docs`, `perf`
+
+**Customization:**
+Edit `commitlint.config.ts` to:
+- Add/remove commit types in the `type-enum` rule
+- Modify header length limit
+- Add custom rules
+
+Example commit: `feat(login-page): add SSO authentication`
+
+## SEO & Analytics
+
+### Sitemap, robots.txt and Manifest
+
+**Sitemap** (`app/sitemap.ts`): Generates XML sitemap for search engines. Add static routes to `staticRoutes` array. For dynamic routes, fetch data and map to sitemap entries:
+
 ```typescript
-// sitemap.ts
+const dynamicRoutes = posts.map(post => ({
+  url: `${baseUrl}/post/${post.slug}`,
+  lastModified: post.updatedAt,
+  changeFrequency: "weekly" as const,
+  priority: 0.8
+}));
+```
 
-import { MetadataRoute } from  "next";
+**Robots** (`app/robots.ts`): Controls crawler access. Modify `rules` array to allow/disallow paths. Currently blocks GPTBot and CCBot - remove those rules if needed.
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+**Manifest** (`app/manifest.ts`): PWA configuration. Update `name`, `short_name`, `description`, colors, and icon paths for your app.
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-    const currentDate = new Date();
+### Metadata & Microdata
 
-    
-    const staticRoutes: MetadataRoute.Sitemap = [
-        { 
-            url: `${baseUrl}`, 
-            lastModified: currentDate, 
-            changeFrequency: "never" as const,
-            priority: 1 
-        },
-        { 
-            url: `${baseUrl}/about`, 
-            lastModified: currentDate, 
-            changeFrequency: "never" as const,
-            priority: 0.9
-        },
-        //changeFrequency: "daily", for pages that are updated daily
-        //changeFrequency: "weekly", for pages that are updated weekly
-        //changeFrequency: "yearly", for pages that are updated yearly
-        //changeFrequency: "never", for pages that are never updated
+**Metadata** is configured in `app/layout.tsx` via the `metaData` export. The `title.template` property creates a prefix for child pages (e.g., "NESS - Contact").
 
-        //priority: 1, for pages that are the most important
-        //priority: 0.9, for pages that are less important
-        //priority: 0.8, for pages that are even less important
-    ]
-    
-    const  myPosts = await  getPostsFromServer();
+For dynamic metadata, export `generateMetadata` in page/layout files:
 
-    const  dynamicRoutes: MetadataRoute.Sitemap = myPosts.map(post  => ({ 
-        url :  `${process.env.NEXT_PUBLIC_BASE_URL}/post/${post.slug}`}),
-        priority: 0.5, // as an example
-        lastModified: post.updatedAt
-    )
-    
-    return [...staticRoutes, ...dynamicRoutes];
-
+```typescript
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const data = await fetchData(params.id);
+  return {
+    title: data.title,
+    description: data.description,
+  };
 }
 ```
 
-In this way, you'll expose all possible website URLs to the search engine crawlers.
-
-The _manifest.ts_ instead, gives to the browser general information about the application. It's very important if you're developing a Progressive Web App (PWA), since the browser will use those information to get logo, colors, etc... So I recommend you to edit this file based on your needs.
-  
-## Metadata setup
-
-### 1. Base setup
-This is the base setup included in the starter
-```typescript
-// app/layout.tsx
-import  type { Metadata } from  'next'
-
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
-  title: {
-    default: "NESS",
-    template: "NESS - %s",
-  },
-  description:
-    "NESS is a Next.Js Starter Template, SEO friendly, ready-to-use, production ready and other bunch of business words",
-  keywords: [
-    "NESS"
-  ],
-  authors: [{ name: "NESS" }],
-  creator: "NESS",
-  publisher: "NESS",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  alternates: {
-    canonical: process.env.NEXT_PUBLIC_BASE_URL,
-  },
-};
-```
-Edit metadata based on your needs. Here's some suggestions to have a good SEO score:
-- The title should be 30-50 characters
-- The description should be 120-150 characters
-- Keywords shouldn't be too short. Use "Ecommerce to sell shoe and shoe accessories" instead of "Shoe Ecommerce"
-- Also make sure the words you write in the keywords are also in the related page. 
-
-About the _title_ property, it's an object containing the template prefix inherited by sub-routes. So than in the other pages you can just set the relavite title
+**Microdata** uses Schema.org vocabulary. The `microdata()` utility in `lib/microdata.ts` creates typed schema objects. Use `MicrodataScript` component to inject JSON-LD:
 
 ```typescript
-// e.g. app/(routes)/contact/layout.tsx
+const schema = microdata(
+  "WebSite", 
+  { 
+    name: "My Site", 
+    url: baseUrl 
+  }
+);
 
-export  const  metadata: Metadata = {
-    title:  'Contact'  // Final result: NESS - Contact
-}
+<MicrodataScript id="site-schema" microdata={schema} />
 ```
 
-### 2. Dynamic metadata
-If you need to generate dynamic metadata for a page (for example for a blog post page), you need to add this function in that layout file
+See [schema.org](https://schema.org/docs/gs.html) for properties.
 
-```typescript
-// e.g. app/(routes)/post/[id]
+### Google Analytics
 
-import { Metadata, ResolvingMetadata } from  "next";
+Implemented using `@next/third-parties/google`. The `GoogleAnalytics` component is conditionally rendered in `app/layout.tsx` when `GOOGLE_ANALYTICS_TAG` is set.
 
-export async function generateMetadata( { params }: PageProps , parent: ResolvingMetadata): Promise<Metadata> {
+**Setup:**
+1. Add `GOOGLE_ANALYTICS_TAG` to `.env` with your GA4 measurement ID
+2. Component automatically loads when env var is present
 
-const product = await yourRequestToServer(params.id);
-    return {
-        title: product.name,
-        description: product.description,
-        openGraph:{
-            images:[
-                'product.image.url'
-            ]
-        },
-        twitter:{
-            images:[
-                'product.image.url'
-            ]
-        }
-        ...
-    }
-}
-
-export function PostPage(){
-    ...
-}
-```
-
-## Microdata setup
-
-Microdata are sets of information provided by us to Search Engines (SE), to make them aware about what kind of information or entities we're displaying in the page. To better know what kind of data SE need, the community built over the years a vocabulary that you can check at this [link](https://schema.org/).
-
-In Next.Js we can declare microdata in _layout.tsx_ files. I built a utility function and a custom Script component to easly integrate microdata in every page. In the root layout you can find an example.
+**Removal:**
+Uninstall `@next/third-parties` and remove the component from `app/layout.tsx`.
 
 ## Opengraph/Twitter/Apple image
 
-The project already includes placeholders for these images. If you need static ones, just replace them with your images **without changing the file names** (you can still change the format). Here some recommendation about the images:
+Static image files in `app/`:
+- `opengraph-image.png` - 1.91:1 ratio (1200×630px recommended, <8MB)
+- `twitter-image.png` - 2:1 ratio (<5MB)
+- `apple-icon.png` - 1:1 ratio (180×180px recommended)
 
--  **Opengraph**: Aspect ratio of 1.91:1 (usually 1200 × 630 px) - less than 8MB
+Replace these files with your images (keep filenames, format can change). Also update `favicon.ico`.
 
--  **Twitter**: Aspect ratio of 2:1 - less than 5MB
-
--  **Apple**: Aspect ratio of 1:1 (usually 180 × 180 px)
-
-Remember to change the _favicon.ico_ as well!
-
-If you need a more complex or custom og/twitter image generation instead, i recommend you [this article](https://cruip.com/generate-dynamic-open-graph-and-twitter-images-in-next-js/)
-
-  
-
-## Tailwind configuration
-
-The project is delivered with tailwind already in place.
-
-  
-
-**If you want to remove it**, Follow these step.
-
-  
-
-Remove dependencies from package.json
-
-```json
-"tailwindcss",
-"tailwindcss-animate",
-"tailwind-merge",
-"@tailwindcss/postcss",
-"postcss",
-"clsx"
-```
-
-than delete these files, since they'll not be needed anymore
-
-```bash
-postcss.config.js
-lib/utils.ts
-```
-
-  
-
-finally remove these lines of code from _globals.css_
-
-```css
-@import  'tailwindcss';
-@plugin 'tailwindcss-animate';
-@variant dark (&:is(.dark *));
-```
-
-  
-
-and you're done!
-
-  
+For dynamic image generation, use Next.js ImageResponse API. See [this guide](https://cruip.com/generate-dynamic-open-graph-and-twitter-images-in-next-js/).
 
 ## Framer Motion
 
-Library to build awesome website animations. You can find additional information on their [**website**](https://www.framer.com/motion/). Since this library doesn't need any type of configuration, if you don't need it just remove it from package.json
-  
-## Google Analytics
-Google analytics is an essential tool if you want to track website usage, but not only. It has a lot of analytics stuff and more. We're using the new vercel library [@next/third-parties](https://nextjs.org/docs/app/guides/) to easly implement it in the project. If you don't need it, you can just uninstall the _@next/third-parties_ package, and remove it from layout.tsx
-```html
-<GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_TAG!} />
+Animation library included. No configuration required. Import and use components:
+
+```typescript
+import { motion } from "framer-motion";
 ```
+
+Remove from `package.json` if not needed.
 
 ## Resources
 
