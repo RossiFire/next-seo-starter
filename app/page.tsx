@@ -8,7 +8,7 @@ export default function Home() {
 				<div className="flex flex-col items-start justify-center gap-4">
 					<h1
 						className={cn(
-							"text-base md:text-2xl lg:text-5xl tracking-widest text-gradient font-bbh-bartle"
+							"text-base md:text-2xl lg:text-5xl tracking-widest text-transparent bg-clip-text bg-linear-to-r from-primary via-gray-950 to-secondary font-bbh-bartle"
 						)}
 					>
 						NextJs SEO <br /> Starter

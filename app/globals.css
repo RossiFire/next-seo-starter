@@ -19,7 +19,3 @@
 	/* Css variables automatically generated in layout.tsx */
 	--font-dm-sans: var(--font-dm-sans);
 }
-
-@utility text-gradient {
-	@apply text-transparent bg-clip-text bg-linear-to-r from-primary via-gray-950 to-secondary;
-}
